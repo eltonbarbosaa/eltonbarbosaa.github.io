@@ -96,6 +96,10 @@
     } else {
       document.documentElement.removeAttribute("data-theme");
     }
+    const themeColorMeta = document.getElementById("theme-color-meta");
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute("content", theme === "light" ? "#f8fafc" : "#0b0d17");
+    }
     localStorage.setItem(THEME_KEY, theme);
   }
 

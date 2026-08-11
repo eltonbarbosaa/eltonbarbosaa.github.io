@@ -479,3 +479,10 @@ h2 em {
 @media (max-width: 600px) {
   .hero-content { width: 100%; }
 }
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .orb { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
