@@ -258,6 +258,9 @@ a:hover { text-decoration: underline; }
 
 .contact-links { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 1.5rem; }
 .contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 0.55rem 1.1rem;
@@ -267,6 +270,7 @@ a:hover { text-decoration: underline; }
   transition: border-color 0.2s, color 0.2s;
 }
 .contact-links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.contact-links svg { flex-shrink: 0; }
 
 .site-footer {
   background: #060812;
@@ -287,7 +291,7 @@ a:hover { text-decoration: underline; }
 .footer-brand h3 { font-family: var(--font-mono); color: var(--text-primary); font-size: 1.2rem; margin-bottom: 0.5rem; }
 .footer-brand p { color: var(--text-muted); font-size: 0.88rem; }
 .footer-social { display: flex; gap: 1.25rem; flex-wrap: wrap; list-style: none; }
-.footer-social a { color: var(--text-muted); font-size: 0.85rem; font-family: var(--font-mono); }
+.footer-social a { display: flex; color: var(--text-muted); transition: color 0.2s; }
 .footer-social a:hover { color: var(--accent); text-decoration: none; }
 .footer-bottom { text-align: center; }
 .footer-bottom p { color: var(--text-muted); font-size: 0.8rem; }
