@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elton Barbosa — Desenvolvedor Full Stack</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <span class="nav-brand">Elton Barbosa</span>
+      <div class="nav-links">
+        <a href="#about" data-i18n="nav_about">Sobre</a>
+        <a href="#experience" data-i18n="nav_experience">Experiência</a>
+        <a href="#stack" data-i18n="nav_stack">Stack</a>
+        <a href="#projects" data-i18n="nav_projects">Projetos</a>
+        <a href="#contact" data-i18n="nav_contact">Contato</a>
+      </div>
+      <button id="lang-toggle" aria-label="Toggle language">EN</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <p class="hero-greeting" data-i18n="hero_greeting">Olá, eu sou</p>
+      <h1 class="hero-name">Elton Barbosa</h1>
+      <p class="hero-title" data-i18n="hero_title">Desenvolvedor Full Stack | Engenharia de Planejamento</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary" data-i18n="hero_cta_contact">Entrar em contato</a>
+        <a href="#projects" class="btn btn-secondary" data-i18n="hero_cta_projects">Ver projetos</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2 data-i18n="about_heading">Sobre</h2>
+      <p data-i18n="about_text">Engenheiro de Computação formado pela Universidade Federal do Pará (Campus Tucuruí), pós-graduando em Engenharia de Segurança do Trabalho e em Engenharia de Produção & Gestão de Projetos.</p>
+    </section>
+
+    <section id="experience" class="section">
+      <h2 data-i18n="experience_heading">Experiência</h2>
+      <div class="experience-card">
+        <h3 data-i18n="experience_role">Engenheiro de Planejamento</h3>
+        <p class="experience-company" data-i18n="experience_company">MCA Auditoria e Gerenciamento</p>
+        <p class="experience-period" data-i18n="experience_period">Desde julho de 2026</p>
+        <p class="experience-note" data-i18n="experience_note">Atuação predominante em desenvolvimento.</p>
+      </div>
+    </section>
+
+    <section id="stack" class="section">
+      <h2 data-i18n="stack_heading">Stack</h2>
+      <div class="stack-grid">
+        <div class="stack-group">
+          <h3 data-i18n="stack_data_ai">Dados &amp; IA</h3>
+          <ul class="stack-badges">
+            <li>Python</li><li>Power BI</li><li>Pandas</li><li>NumPy</li><li>OpenCV</li><li>YOLOv8/v9/v10</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="stack_backend">Back-end</h3>
+          <ul class="stack-badges">
+            <li>PHP</li><li>Node.js</li><li>MySQL</li><li>MariaDB</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="stack_frontend">Front-end</h3>
+          <ul class="stack-badges">
+            <li>JavaScript</li><li>React</li><li>HTML5</li><li>CSS</li><li>Flutter</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="stack_tools">Ferramentas</h3>
+          <ul class="stack-badges">
+            <li>Git</li><li>GitHub</li><li>VS Code</li><li>Google Colab</li><li>Claude Code</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2 data-i18n="projects_heading">Projetos</h2>
+      <div id="projects-container" class="projects-grid"></div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2 data-i18n="contact_heading">Contato</h2>
+      <p data-i18n="contact_text">Aberto a conexões, colaborações e novos desafios em Dados, IA e Desenvolvimento.</p>
+      <div class="contact-links">
+        <a href="mailto:elton.baarbosa@gmail.com">Gmail</a>
+        <a href="https://www.linkedin.com/in/eltonsilvabarbosa/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/eltonbarbosaa" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.instagram.com/eltonbarbosa__" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p data-i18n="footer_text">Feito por Elton Barbosa</p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="projects.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
