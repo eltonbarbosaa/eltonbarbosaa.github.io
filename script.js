@@ -51,11 +51,55 @@
       link.target = "_blank";
       link.rel = "noopener";
       link.className = "project-link";
-      link.textContent = lang === "pt" ? "Ver no GitHub →" : "View on GitHub →";
+      link.textContent = i18n[lang].project_link_text;
       card.appendChild(link);
 
       container.appendChild(card);
     });
+  }
+
+  function initHeaderScroll() {
+    const header = document.getElementById("site-header");
+    const onScroll = () => {
+      header.classList.toggle("scrolled", window.scrollY > 40);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  function initHamburger() {
+    const hamburger = document.getElementById("hamburger");
+    const nav = document.getElementById("nav");
+    hamburger.addEventListener("click", () => {
+      const isActive = nav.classList.toggle("active");
+      hamburger.classList.toggle("active", isActive);
+    });
+    nav.querySelectorAll(".nav-list a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("active");
+        hamburger.classList.remove("active");
+      });
+    });
+  }
+
+  function initReveal() {
+    const targets = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) {
+      targets.forEach((el) => el.classList.add("revealed"));
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    targets.forEach((el) => observer.observe(el));
   }
 
   function init() {
@@ -64,6 +108,9 @@
       const current = localStorage.getItem(STORAGE_KEY) || "pt";
       applyLanguage(current === "pt" ? "en" : "pt");
     });
+    initHeaderScroll();
+    initHamburger();
+    initReveal();
   }
 
   document.addEventListener("DOMContentLoaded", init);
