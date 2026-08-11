@@ -1,6 +1,8 @@
 // script.js
 (function () {
   const STORAGE_KEY = "site-lang";
+  const THEME_KEY = "site-theme";
+  const GITHUB_USERNAME = "eltonbarbosaa";
 
   function getInitialLang() {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -82,6 +84,78 @@
     });
   }
 
+  function getInitialTheme() {
+    const stored = localStorage.getItem(THEME_KEY);
+    if (stored === "dark" || stored === "light") return stored;
+    return "dark";
+  }
+
+  function applyTheme(theme) {
+    if (theme === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+    localStorage.setItem(THEME_KEY, theme);
+  }
+
+  function initTheme() {
+    applyTheme(getInitialTheme());
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+      const current = localStorage.getItem(THEME_KEY) || "dark";
+      applyTheme(current === "dark" ? "light" : "dark");
+    });
+  }
+
+  function initGithubStats() {
+    fetch(`https://api.github.com/users/${GITHUB_USERNAME}`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data && typeof data.public_repos === "number") {
+          document.getElementById("stat-repos").textContent = data.public_repos + "+";
+        }
+      })
+      .catch(() => {
+        // Keep the static fallback already in the HTML if the API is unreachable or rate-limited.
+      });
+  }
+
+  function initBackToTop() {
+    const button = document.getElementById("back-to-top");
+    const onScroll = () => {
+      button.classList.toggle("visible", window.scrollY > 500);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    button.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    onScroll();
+  }
+
+  function initScrollSpy() {
+    const sections = Array.from(document.querySelectorAll("main section[id]"));
+    const navLinks = Array.from(document.querySelectorAll(".nav-list a[href^='#']"));
+    if (!sections.length || !navLinks.length || !("IntersectionObserver" in window)) return;
+
+    const setActive = (id) => {
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    sections.forEach((section) => observer.observe(section));
+  }
+
   function initReveal() {
     const targets = document.querySelectorAll(".reveal");
     if (!("IntersectionObserver" in window)) {
@@ -108,9 +182,13 @@
       const current = localStorage.getItem(STORAGE_KEY) || "pt";
       applyLanguage(current === "pt" ? "en" : "pt");
     });
+    initTheme();
     initHeaderScroll();
     initHamburger();
     initReveal();
+    initGithubStats();
+    initBackToTop();
+    initScrollSpy();
   }
 
   document.addEventListener("DOMContentLoaded", init);
