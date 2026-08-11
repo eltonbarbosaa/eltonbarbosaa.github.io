@@ -4,12 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Elton Barbosa — Desenvolvedor Full Stack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
     <nav class="nav">
-      <span class="nav-brand">Elton Barbosa</span>
+      <span class="nav-brand">eltonbarbosa</span>
       <div class="nav-links">
         <a href="#about" data-i18n="nav_about">Sobre</a>
         <a href="#experience" data-i18n="nav_experience">Experiência</a>
@@ -23,12 +26,24 @@
 
   <main>
     <section id="hero" class="hero">
-      <p class="hero-greeting" data-i18n="hero_greeting">Olá, eu sou</p>
-      <h1 class="hero-name">Elton Barbosa</h1>
-      <p class="hero-title" data-i18n="hero_title">Desenvolvedor Full Stack | Engenharia de Planejamento</p>
+      <p class="hero-greeting" data-i18n="hero_greeting">Olá, eu sou o</p>
+      <h1 class="hero-name">Elton<br>Barbosa</h1>
+      <p class="hero-subtitle" data-i18n="hero_subtitle">Engenheiro de Computação, Desenvolvedor Full Stack e entusiasta de IA & Dados.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary" data-i18n="hero_cta_contact">Entrar em contato</a>
         <a href="#projects" class="btn btn-secondary" data-i18n="hero_cta_projects">Ver projetos</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-number" data-i18n="hero_stat1_number">4+</span>
+          <span class="stat-label" data-i18n="hero_stat1_label">Projetos no GitHub</span>
+          <span class="stat-sub" data-i18n="hero_stat1_sub">Full Stack & IA</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-i18n="hero_stat2_number">2</span>
+          <span class="stat-label" data-i18n="hero_stat2_label">Pós-graduações</span>
+          <span class="stat-sub" data-i18n="hero_stat2_sub">Em andamento</span>
+        </div>
       </div>
     </section>
 
@@ -38,12 +53,38 @@
     </section>
 
     <section id="experience" class="section">
+      <p class="section-kicker" data-i18n="experience_subheading">Profissional</p>
       <h2 data-i18n="experience_heading">Experiência</h2>
       <div class="experience-card">
         <h3 data-i18n="experience_role">Engenheiro de Planejamento</h3>
         <p class="experience-company" data-i18n="experience_company">MCA Auditoria e Gerenciamento</p>
         <p class="experience-period" data-i18n="experience_period">Desde julho de 2026</p>
         <p class="experience-note" data-i18n="experience_note">Atuação predominante em desenvolvimento.</p>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <p class="section-kicker" data-i18n="education_subheading">Educação</p>
+      <h2 data-i18n="education_heading">Formação</h2>
+      <div class="education-grid">
+        <div class="education-card">
+          <p class="education-degree" data-i18n="education_degree1">Bacharelado</p>
+          <h3 data-i18n="education_course1">Engenharia de Computação</h3>
+          <p class="education-institution" data-i18n="education_institution1">Universidade Federal do Pará</p>
+          <span class="education-status" data-i18n="education_status1">Concluído</span>
+        </div>
+        <div class="education-card">
+          <p class="education-degree" data-i18n="education_degree2">Pós-graduação</p>
+          <h3 data-i18n="education_course2">Engenharia de Segurança do Trabalho</h3>
+          <p class="education-institution" data-i18n="education_institution2">—</p>
+          <span class="education-status education-status-progress" data-i18n="education_status2">Em andamento</span>
+        </div>
+        <div class="education-card">
+          <p class="education-degree" data-i18n="education_degree3">Pós-graduação</p>
+          <h3 data-i18n="education_course3">Engenharia de Produção & Gestão de Projetos</h3>
+          <p class="education-institution" data-i18n="education_institution3">—</p>
+          <span class="education-status education-status-progress" data-i18n="education_status3">Em andamento</span>
+        </div>
       </div>
     </section>
 
@@ -79,6 +120,7 @@
 
     <section id="projects" class="section">
       <h2 data-i18n="projects_heading">Projetos</h2>
+      <p class="section-subtext" data-i18n="projects_subtext">Alguns projetos que desenvolvi ao longo da minha trajetória.</p>
       <div id="projects-container" class="projects-grid"></div>
     </section>
 
@@ -95,7 +137,23 @@
   </main>
 
   <footer class="site-footer">
-    <p data-i18n="footer_text">Feito por Elton Barbosa</p>
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>eltonbarbosa</h3>
+          <p data-i18n="footer_tagline">Engenheiro de Computação, Dev Full Stack e entusiasta de IA.</p>
+        </div>
+        <ul class="footer-social">
+          <li><a href="mailto:elton.baarbosa@gmail.com">Gmail</a></li>
+          <li><a href="https://www.linkedin.com/in/eltonsilvabarbosa/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/eltonbarbosaa" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.instagram.com/eltonbarbosa__" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer_text">Feito por Elton Barbosa</p>
+      </div>
+    </div>
   </footer>
 
   <script src="i18n.js"></script>

@@ -51,7 +51,7 @@
       link.target = "_blank";
       link.rel = "noopener";
       link.className = "project-link";
-      link.textContent = lang === "pt" ? "Ver no GitHub" : "View on GitHub";
+      link.textContent = lang === "pt" ? "Ver no GitHub →" : "View on GitHub →";
       card.appendChild(link);
 
       container.appendChild(card);
