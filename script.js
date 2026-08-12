@@ -56,6 +56,14 @@
       link.textContent = i18n[lang].project_link_text;
       card.appendChild(link);
 
+      if (project.demoLink) {
+        const demoLink = document.createElement("a");
+        demoLink.href = project.demoLink;
+        demoLink.className = "project-link project-link-demo";
+        demoLink.textContent = i18n[lang].project_demo_link_text;
+        card.appendChild(demoLink);
+      }
+
       container.appendChild(card);
     });
   }

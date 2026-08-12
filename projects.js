@@ -7,6 +7,7 @@ const projects = [
     descEn: "Automatic detection of weapons and disguises in video, comparing YOLOv8, YOLOv9 and YOLOv10 on the same dataset, with a data augmentation pipeline and reproducible training via Google Colab.",
     tags: ["Python", "YOLOv8/v9/v10", "OpenCV", "Ultralytics"],
     link: "https://github.com/eltonbarbosaa/tcc-yolo",
+    demoLink: "demos/yolo/",
     highlight: true,
   },
   {
