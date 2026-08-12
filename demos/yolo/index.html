@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo — Detecção de Objetos (YOLOv8) | Elton Barbosa</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b0d17'/%3E%3Ctext x='50' y='68' font-family='monospace' font-size='46' font-weight='700' fill='%238b5cf6' text-anchor='middle'%3EEB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <header class="demo-header">
+    <a href="../../index.html" class="demo-back" data-i18n="yolo_demo_back_link">← Voltar ao portfólio</a>
+    <button id="lang-toggle" aria-label="Toggle language">EN</button>
+  </header>
+
+  <main class="demo-main">
+    <p class="section-tag" data-i18n="yolo_demo_tag">Demo</p>
+    <h1 data-i18n="yolo_demo_title">Detecção de Objetos com YOLOv8</h1>
+    <p class="demo-subtitle" data-i18n="yolo_demo_subtitle">Suba uma imagem e veja o modelo treinado no meu TCC detectar capacete, disfarce e arma — direto no seu navegador, em tempo real.</p>
+    <p class="demo-privacy" data-i18n="yolo_demo_privacy_note">Processado 100% no seu navegador. Nenhuma imagem é enviada a um servidor.</p>
+
+    <div class="demo-upload">
+      <label for="image-input" id="upload-label" class="btn btn-primary btn-loading" data-i18n="yolo_demo_upload_label">Escolher imagem</label>
+      <input type="file" id="image-input" accept="image/*" disabled>
+      <p id="status-message" class="demo-status"></p>
+      <p id="error-message" class="demo-error" hidden></p>
+    </div>
+
+    <div class="demo-result">
+      <canvas id="result-canvas"></canvas>
+      <ul id="results-list" class="demo-results-list"></ul>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+  <script src="../../i18n.js"></script>
+  <script src="yolo-postprocess.js"></script>
+  <script src="detect.js"></script>
+</body>
+</html>
