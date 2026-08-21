@@ -29,7 +29,12 @@
     container.innerHTML = "";
     projects.forEach((project) => {
       const card = document.createElement("article");
-      card.className = "project-card" + (project.highlight ? " project-card-highlight" : "");
+      card.className = "project-card reveal-stagger" + (project.highlight ? " project-card-highlight" : "");
+      card.addEventListener("pointermove", (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+        card.style.setProperty("--my", `${e.clientY - rect.top}px`);
+      });
 
       const title = document.createElement("h3");
       title.textContent = lang === "pt" ? project.nameKey : project.nameEnKey;
@@ -72,6 +77,11 @@
       }
 
       container.appendChild(card);
+    });
+
+    document.querySelectorAll("#projects-container .reveal-stagger").forEach((el, index) => {
+      el.style.transitionDelay = `${Math.min(index, 6) * 90}ms`;
+      observeReveal(el);
     });
   }
 
@@ -175,27 +185,48 @@
     sections.forEach((section) => observer.observe(section));
   }
 
-  function initReveal() {
-    const targets = document.querySelectorAll(".reveal");
-    if (!("IntersectionObserver" in window)) {
-      targets.forEach((el) => el.classList.add("revealed"));
+  let revealObserver = null;
+
+  function observeReveal(el) {
+    if (el.dataset.revealed === "true") return;
+    if (!revealObserver) {
+      el.classList.add("revealed");
       return;
     }
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("revealed");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    targets.forEach((el) => observer.observe(el));
+    revealObserver.observe(el);
+  }
+
+  function initReveal() {
+    if ("IntersectionObserver" in window) {
+      revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+              entry.target.dataset.revealed = "true";
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+    }
+
+    document.querySelectorAll(".reveal").forEach(observeReveal);
+
+    // Stagger grouped items (timeline entries, education cards, stack groups, project cards)
+    // by applying an incremental transition-delay based on their position within the parent.
+    document.querySelectorAll(".reveal-stagger").forEach((el) => {
+      const parent = el.parentElement;
+      const siblings = parent ? Array.from(parent.children).filter((c) => c.classList.contains("reveal-stagger")) : [el];
+      const index = siblings.indexOf(el);
+      el.style.transitionDelay = `${Math.min(index, 6) * 90}ms`;
+      observeReveal(el);
+    });
   }
 
   function init() {
+    initReveal();
     applyLanguage(getInitialLang());
     document.getElementById("lang-toggle").addEventListener("click", () => {
       const current = localStorage.getItem(STORAGE_KEY) || "pt";
@@ -204,7 +235,6 @@
     initTheme();
     initHeaderScroll();
     initHamburger();
-    initReveal();
     initGithubStats();
     initBackToTop();
     initScrollSpy();
