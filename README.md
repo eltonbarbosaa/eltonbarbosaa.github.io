@@ -4,6 +4,11 @@ Portfólio pessoal de **Elton Barbosa** — Engenheiro de Computação, Desenvol
 
 🔗 **Live:** [eltonbarbosaa.github.io](https://eltonbarbosaa.github.io)
 
+<p align="center">
+  <img src="docs/preview-hero.png" width="49%" alt="Portfólio — tema claro" />
+  <img src="docs/preview-hero-dark.png" width="49%" alt="Portfólio — tema escuro" />
+</p>
+
 ## Stack
 
 Site estático, sem build e sem dependências de npm:
