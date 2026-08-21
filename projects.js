@@ -17,7 +17,7 @@ const projects = [
     descPt: "Sistema de gestão de solicitação de material, RH, contratadas e almoxarifado, construído em PHP e MySQL para automatizar processos internos de planejamento e controle.",
     descEn: "Management system for material requests, HR, contractors and warehouse, built in PHP and MySQL to automate internal planning and control processes.",
     tags: ["PHP", "MySQL", "Sistema de Gestão"],
-    link: "https://github.com/eltonbarbosaa/portal_gim",
+    link: null,
     highlight: false,
   },
   {

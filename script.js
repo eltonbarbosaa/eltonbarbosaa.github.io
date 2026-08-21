@@ -48,13 +48,20 @@
       });
       card.appendChild(tagList);
 
-      const link = document.createElement("a");
-      link.href = project.link;
-      link.target = "_blank";
-      link.rel = "noopener";
-      link.className = "project-link";
-      link.textContent = i18n[lang].project_link_text;
-      card.appendChild(link);
+      if (project.link) {
+        const link = document.createElement("a");
+        link.href = project.link;
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.className = "project-link";
+        link.textContent = i18n[lang].project_link_text;
+        card.appendChild(link);
+      } else {
+        const privateLabel = document.createElement("span");
+        privateLabel.className = "project-link project-link-private";
+        privateLabel.textContent = i18n[lang].project_private_text;
+        card.appendChild(privateLabel);
+      }
 
       if (project.demoLink) {
         const demoLink = document.createElement("a");

@@ -430,6 +430,14 @@ h2 em {
 }
 .project-link-demo:hover { background: var(--accent-secondary); border-color: var(--accent-secondary); color: #fff; }
 
+.project-link-private {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-secondary);
+  cursor: default;
+}
+.project-link-private:hover { background: transparent; border-color: var(--border); color: var(--text-secondary); }
+
 /* ---------- Footer ---------- */
 .site-footer { background: var(--footer-bg); border-top: 1px solid var(--border); padding: 60px 24px 32px; transition: background 0.3s ease; }
 .footer-container { margin: 0 auto; max-width: 1000px; }
